@@ -1,4 +1,4 @@
-
+##In this code we clean the data (which is a survey data) and prepare it for machine learning model
 #load libraries
 
 library(tidyr)
