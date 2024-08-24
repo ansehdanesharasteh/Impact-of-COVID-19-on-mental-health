@@ -95,3 +95,11 @@ summary(didreg)
 didreg1 = lm(mental_distres ~ breakfast_freq+caffeine_freq+dairy_freq+meat_freq+seafood_freq+fastfood_freq+HGI_freq+whole_grain_freq+fruit_freq+flaxseed_freq+vegetable_freq+beans_freq+sleep_freq +did, data = data)
 summary(didreg1)
 
+female_data<- data[data$gender== 0,]
+male_data<- data[data$gender== 1,]
+
+female_reg = lm(mental_distres ~ breakfast_freq+caffeine_freq+dairy_freq+meat_freq+seafood_freq+fastfood_freq+HGI_freq+whole_grain_freq+fruit_freq+flaxseed_freq+vegetable_freq+beans_freq+sleep_freq +covid_dur * exercise_freq, data = female_data)
+summary(female_reg)
+
+male_reg = lm(mental_distres ~ breakfast_freq+caffeine_freq+dairy_freq+meat_freq+seafood_freq+fastfood_freq+HGI_freq+whole_grain_freq+fruit_freq+flaxseed_freq+vegetable_freq+beans_freq+sleep_freq +covid_dur * exercise_freq, data = male_data)
+summary(male_reg)
