@@ -87,6 +87,10 @@ data$sleep_freq <- 0
 data$sleep_freq[data$sleep_time>= 2 & data$sleep_time <4] <- 1
 data$sleep_freq[data$sleep_time >= 4] <- 2
 
+x  <- data[,c('breakfast_freq','caffeine_freq','dairy_freq','meat_freq','seafood_freq','fastfood_freq','HGI_freq','whole_grain_freq','fruit_freq','flaxseed_freq','vegetable_freq','beans_freq','sleep_freq','covid_dur', 'exercise_freq')]
+x<- as.matrix(x)
+hv <- heatmap(x, col = heat.colors(256))
+
 data$did = data$covid_dur * data$exercise_freq
 
 didreg = lm(mental_distres ~ breakfast_freq+caffeine_freq+dairy_freq+meat_freq+seafood_freq+fastfood_freq+HGI_freq+whole_grain_freq+fruit_freq+flaxseed_freq+vegetable_freq+beans_freq+sleep_freq +covid_dur * exercise_freq, data = data)
